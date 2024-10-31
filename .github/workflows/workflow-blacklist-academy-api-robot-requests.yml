@@ -1,0 +1,45 @@
+name: Pipeline Testes Automatizados API REST ERP Qa.Coders Academy Robot Framework
+# executa o workflow toda vez que for realizado um push ou pull-request no repositório
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # permite também executar esse workflow manualmente na aba "Actions" do GitHub
+  workflow_dispatch:
+
+jobs:
+  robot-api-rest:
+    # agente de execução/runner 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Passo 1 - Obter cópia do código-fonte do repositório
+        uses: actions/checkout@v3
+
+      - name: Passo 2 - Redirecionar os conteúdos de "secrets.USER_ENV", para os fixtures "user.json", etc
+        run: |
+          echo '${{ secrets.USER_ENV }}' > ./resources/fixtures/user.json
+
+      - name: Passo 3 - Instalar python versão 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Passo 4 - Instalar dependências do projeto
+        run: |
+          pip install -r requirements.txt
+          
+      - name: Passo 5 - Executar testes automatizados de API REST no ambiente da squad "Black List" e Gerar reports html e xml 
+        run: robot -d ./reports ./tests/*
+   
+      - name: Passo 6 - Armazenar reports html e xml
+        uses: actions/upload-artifact@v3
+        # expressão condicional para que sempre seja executado independentemente dos resultados dos steps anteriores
+        if: ${{ always() }}
+        with: 
+            name: robot-api-rest-reports-html-xml
+            path: ./reports
+            # armazena por 30 dias
+            retention-days: 30
