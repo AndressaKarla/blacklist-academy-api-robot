@@ -5,5 +5,8 @@
     },
     "admin_valido": {
         "password_confirmPassword_validas": "informar-password-confirmPassword-user-admin-valido"
+    },
+    "admin_valido2": {
+        "password_confirmPassword_validas": "informar-password-confirmPassword-user-admin-valido2"
     }
 }

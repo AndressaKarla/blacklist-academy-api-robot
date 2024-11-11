@@ -1,5 +1,6 @@
 robotframework==6.1.1
 robotframework-pythonlibcore==4.3.0
+robotframework-faker==5.0.0
 robotframework-requests==1.0a10
 requests==2.31.0
 python-dateutil==2.9.0.post0

@@ -64,6 +64,9 @@ Gerar cpf user admin dinâmico
 Obter password e confirmPassword estáticas user admin dinâmico
     Set Test Variable    ${PASSWORD_CONFIRM_PASSWORD}    ${USER_FIXTURE['admin_valido']['password_confirmPassword_validas']}
 
+Obter password e confirmPassword estáticas user admin dinâmico 2
+    Set Test Variable    ${PASSWORD_CONFIRM_PASSWORD2}    ${USER_FIXTURE['admin_valido2']['password_confirmPassword_validas']}
+
 Gerar e obter dados user admin dinâmico
     Gerar fullName user admin dinâmico
     Gerar mail user admin dinâmico
