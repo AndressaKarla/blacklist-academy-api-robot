@@ -21,7 +21,7 @@ jobs:
 
     environment:
       name: github-pages
-      url: https://github.com/AndressaKarla/blacklist-academy12.2-api-robot/log.html
+      url: https://andressakarla.github.io/blacklist-academy12.2-api-robot/log.html
 
     steps:
       - name: Passo 1 - Obter cópia do código-fonte do repositório
