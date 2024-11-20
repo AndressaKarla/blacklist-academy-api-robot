@@ -14,6 +14,15 @@ jobs:
     # agente de execução/runner 
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: https://github.com/AndressaKarla/blacklist-academy12.2-api-robot/log.html
+
     steps:
       - name: Passo 1 - Obter cópia do código-fonte do repositório
         uses: actions/checkout@v3
@@ -35,11 +44,34 @@ jobs:
         run: robot -d ./reports ./tests/*
    
       - name: Passo 6 - Armazenar reports html e xml
-        uses: actions/upload-artifact@v3
         # expressão condicional para que sempre seja executado independentemente dos resultados dos steps anteriores
-        if: ${{ always() }}
+        if: ${{ always() }}     
+        uses: actions/upload-artifact@v3
         with: 
             name: robot-api-rest-reports-html-xml
             path: ./reports
             # armazena por 30 dias
             retention-days: 30
+
+      - name: Passo 7 - Configurar pages
+        if: ${{ always() }}
+        uses: actions/configure-pages@v2
+
+      - name: Passo 8 - Baixar report html armazenado no "Passo 6 - Armazenar reports html e xml"
+        if: ${{ always() }}
+        uses: actions/download-artifact@v3
+        with: 
+          name: robot-api-rest-reports-html-xml
+          path: ./reports
+
+      - name: Passo 9 - Armazenar pages
+        if: ${{ always() }}
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./reports
+          retention-days: 30
+
+      - name: Passo 10 - Deploy/Publicar no Github Pages na "url" configurada em "robot-api-rest > environment"
+        if: ${{ always() }}
+        id: deployment
+        uses: actions/deploy-pages@v1            
