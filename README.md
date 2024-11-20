@@ -91,7 +91,7 @@ git clone git@github.com:AndressaKarla/blacklist-academy12.2-api-robot.git
 ```
 
 # :hammer_and_wrench: Instalar todas as dependências necessárias
-- No gitbash aberto como administrador anteriormente, informar o comando abaixo para acessar o projeto "blacklist-academy12.2-api-robot.git" clonado anteriormente
+- No gitbash aberto como administrador anteriormente, informar o comando abaixo para acessar o projeto "blacklist-academy12.2-api-robot" clonado anteriormente
 ```
 cd "blacklist-academy12.2-api-robot"
 ```
@@ -175,11 +175,11 @@ robot -d ./reports ./tests/*
 ```
 
 ---
-# :mag_right: Verificar no navegador padrão o report html gerado na pasta "reports" anteriormente no computador 
-## :bookmark_tabs: Relatório html no computador
+# :mag_right: Verificar no navegador padrão o report html gerado e armazenado na pasta "reports" anteriormente no computador 
+## :bookmark_tabs: Report html no computador
 - No VS Code aberto anteriormente, acessar "reports > log.html" 
 - Clicar com botão direito do mouse sob o arquivo "log.html" > "Reveal in File Explorer" 
-- Na janela do "Explorador de Arquivos" aberta automaticamente, clicar 2 vezes sob o arquivo "log.html" gerado anteriormente no computador para ser aberto e verificado no navegador padrão
+- Na janela do "Explorador de Arquivos" aberta automaticamente, clicar 2 vezes sob o arquivo "log.html" gerado e armazenado anteriormente no computador para ser aberto e verificado no navegador padrão
 
 ---
 ### Feito com ❤️ por Andressa Karla, Cassiano Pereira, Cristian Fabiano, Ewerton Luiz e Isabela Vidal :wave: 
